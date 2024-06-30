@@ -1,0 +1,7 @@
+exec: poetry run uvicorn server.main:app --host 0.0.0.0 --port 8080
+dbs:
+  - path: database.db
+    replicas:
+      - type: ${LITESTREAM_REPLICA_TYPE}
+        bucket: ${LITESTREAM_REPLICA_BUCKET}
+        path: ${LITESTREAM_REPLICA_PATH}
